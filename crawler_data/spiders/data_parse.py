@@ -23,7 +23,7 @@ class DataParseSpider(scrapy.Spider):
     domain = "https://www.spreadshirt.com"
 
     def parse(self, response):
-        for i in range(len(self.start_urls)):
+        for i in range(len(self.categories)):
             link_page = self.categories[i]['url']
             request = Request(link_page, callback=self.parse_link, meta={'patten': self.categories[i]['patten'], 'type': self.categories[i]['type']})
             yield request
